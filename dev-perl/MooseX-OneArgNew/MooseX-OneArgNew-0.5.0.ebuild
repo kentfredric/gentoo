@@ -1,0 +1,31 @@
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+EAPI=5
+MODULE_AUTHOR=RJBS
+MODULE_VERSION=0.005
+inherit perl-module
+
+DESCRIPTION="teach ->new to accept single, non-hashref arguments"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE="test minimal"
+
+# r: Moose::Util::TypeConstraints -> Moose
+RDEPEND="
+	dev-perl/Moose
+	>=dev-perl/MooseX-Role-Parameterized-1.10.0
+	dev-perl/namespace-autoclean
+"
+# t: strict, warnings -> perl
+DEPEND="${RDEPEND}
+	virtual/perl-ExtUtils-MakeMaker
+	test? (
+		!minimal? (
+			>=virtual/perl-CPAN-Meta-2.120.900
+		)
+		virtual/perl-File-Spec
+		>=virtual/perl-Test-Simple-0.960.0
+	)
+"
+SRC_TEST="do parallel"
