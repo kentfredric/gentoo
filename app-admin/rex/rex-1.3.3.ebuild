@@ -1,11 +1,11 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
 MODULE_AUTHOR=FERKI
-MODULE_A=Rex-${PV}.tar.gz
+MY_PN=Rex
 
 inherit perl-module
 
@@ -58,5 +58,3 @@ DEPEND="
 "
 
 SRC_TEST="do"
-
-S="${WORKDIR}/Rex-${PV}"
